@@ -1,4 +1,4 @@
 <resources>
-    <public name="hchuck_chuck" type="string">Hyperion-Chuck</public>
-    <string name="hchuck_plugin_name">Chuck HTTP</string>
+    <string name="hchuck_plugin_title">Chuck</string>
+    <string name="hchuck_plugin_content">Tap to inspect network calls using chuck.</string>
 </resources>

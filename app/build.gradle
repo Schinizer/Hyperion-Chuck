@@ -1,15 +1,13 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion buildConfig.compileSdk
     defaultConfig {
         applicationId "com.commit451.hyperion.chuck.sample"
-        minSdkVersion 16
-        targetSdkVersion 27
+        minSdkVersion buildConfig.minSdk
+        targetSdkVersion buildConfig.targetSdk
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -23,13 +21,14 @@ android {
 }
 
 dependencies {
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:appcompat-v7:27.1.0'
-    implementation 'com.android.support:design:27.1.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+    implementation "com.android.support:appcompat-v7:${versions.androidx.appcompat}"
+    implementation "com.android.support:design:${versions.androidx.appcompat}"
+    implementation "com.readystatesoftware.chuck:library:${versions.chuck}"
 
-    debugImplementation 'com.willowtreeapps.hyperion:hyperion-core:0.9.20'
+    debugImplementation "com.willowtreeapps.hyperion:hyperion-core:${versions.hyperion}"
     debugImplementation project(':hyperion-chuck')
 
-    releaseImplementation 'com.willowtreeapps.hyperion:hyperion-core-no-op:0.9.20'
-    releaseImplementation 'com.readystatesoftware.chuck:library-no-op:1.1.0'
+    releaseImplementation "com.willowtreeapps.hyperion:hyperion-core-no-op:${versions.hyperion}"
+    releaseImplementation "com.readystatesoftware.chuck:library-no-op:${versions.chuck}"
 }

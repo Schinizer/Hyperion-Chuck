@@ -1,16 +1,13 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion buildConfig.compileSdk
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        minSdkVersion buildConfig.minSdk
+        targetSdkVersion buildConfig.targetSdk
+        versionCode buildConfig.versionCode
+        versionName buildConfig.versionName
     }
 
     buildTypes {
@@ -21,13 +18,14 @@ android {
     }
 
     resourcePrefix 'hchuck_'
-
 }
 
 dependencies {
-    api 'com.android.support:appcompat-v7:27.1.0'
-    api 'com.android.support:design:27.1.0'
-    api 'com.willowtreeapps.hyperion:hyperion-plugin:0.9.20'
-    annotationProcessor "com.google.auto.service:auto-service:1.0-rc4"
-    api 'com.readystatesoftware.chuck:library:1.1.0'
+    implementation "com.android.support:appcompat-v7:${versions.androidx.appcompat}"
+    implementation "com.android.support:design:${versions.androidx.appcompat}"
+    implementation "com.android.support.constraint:constraint-layout:${versions.androidx.constraint_layout}"
+    api "com.readystatesoftware.chuck:library:${versions.chuck}"
+
+    implementation "com.willowtreeapps.hyperion:hyperion-plugin:${versions.hyperion}"
+    annotationProcessor "com.google.auto.service:auto-service:${versions.auto.service}"
 }
